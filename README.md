@@ -12,11 +12,11 @@ The project aims to classify human physical activities from time-series sensor d
 * **Data Processing:** Automated sliding window mechanisms for efficient sensor data segmentation.
 
 ## Repository Structure
-* `Data Preprocessing & Windowing.py`: Handles sliding window segmentation, feature extraction, and train/test splits.
-* `Imports & Setup.py`: Core library configurations and environment setup.
-* `Federated Learning Utilities.py`: Client simulation, data batching, and weight scaling algorithms.
-* `Federated Training Loop.py`: The main execution script managing communication rounds and global model updates.
-* `Model Evaluation & Visualization.py`: Calculates performance metrics (Precision, Recall, F1-Score) and plots the Confusion Matrix.
+* `Data_Preprocessing_and_Windowing.py`: Handles sliding window segmentation, feature extraction, and train/test splits.
+* `Imports_and_Setup.py`: Core library configurations and environment setup.
+* `Federated_Learning_Utilities.py`: Client simulation, data batching, and weight scaling algorithms.
+* `Federated_Training_Loop.py`: The main execution script managing communication rounds and global model updates.
+* `Model_Evaluation_and_Visualization.py`: Calculates performance metrics (Precision, Recall, F1-Score) and plots the Confusion Matrix.
 
 ## Prerequisites
 Ensure you have the following dependencies installed in your Python environment:
