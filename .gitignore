@@ -1,0 +1,29 @@
+# Python caches and compiled files
+__pycache__/
+*.py[cod]
+*~
+
+# Virtual Environments
+venv/
+env/
+.env
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Datasets and Logs
+data/
+datasets/
+logs/
+*.log
+
+# Model Weights and Checkpoints
+*.h5
+*.hdf5
+*.ckpt
+*.weights.h5
+saved_models/
+
+# OS specific files
+.DS_Store
+Thumbs.db
