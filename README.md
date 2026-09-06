@@ -21,5 +21,57 @@ MHAT-FL aims to classify human physical activities from high-frequency time-seri
 
 ## Prerequisites
 Ensure you have the following dependencies installed in your Python environment:
-```bash
-pip install tensorflow numpy pandas scikit-learn matplotlib seaborn
+
+    pip install tensorflow numpy pandas scikit-learn matplotlib seaborn
+
+
+## Quick Start / Usage
+MHAT-FL is highly modular. Below is a basic example of how to initialize the framework and run a federated training loop using the **FedPer** strategy:
+
+    from Data_Preprocessing_and_Windowing import sliding_window
+    from Federated_Learning_Utilities import create_clients, batch_data, weight_scalling_factor, scale_model_weights, sum_scaled_weights
+    from transformer import Transformer 
+
+    # 1. Initialize the global MHAT model
+    global_model = Transformer
+    global_weights = global_model.get_weights()
+
+    # 2. Simulate edge clients and distribute sensor data
+    clients = create_clients(X_train, y_train, num_clients=4)
+    clients_batched = {name: batch_data(data) for name, data in clients.items()}
+
+    # 3. Execute the Federated Training Loop (FedPer Strategy)
+    comms_round = 100
+    for round in range(comms_round):
+        scaled_local_weights = []
+        
+        for client in clients.keys():
+            local_model = Transformer
+            local_weights = local_model.get_weights()
+            
+            # Isolate final dense layers for personalization (FedPer)
+            local_weights[:-1] = global_weights[:-1]
+            local_model.set_weights(local_weights)
+            
+            # Perform local training
+            local_model.fit(clients_batched[client], epochs=1, verbose=0)
+            
+            # Scale and collect updated weights
+            scaling_factor = weight_scalling_factor(clients_batched, client)
+            scaled_weights = scale_model_weights(local_model.get_weights(), scaling_factor)
+            scaled_local_weights.append(scaled_weights)
+            
+        # Secure global aggregation 
+        average_weights = sum_scaled_weights(scaled_local_weights)
+        global_model.set_weights(average_weights)
+
+
+## Citation
+If you use this framework in your research, please cite our upcoming paper:
+
+    @article{ariaeimehr2026mhatfl,
+      title={MHAT-FL: An Open-Source TensorFlow Framework for Federated Human Activity Recognition with Attention-Matrix Positional Encoding},
+      author={Ariaeimehr, Mohammad},
+      journal={arXiv preprint},
+      year={2026}
+    }
