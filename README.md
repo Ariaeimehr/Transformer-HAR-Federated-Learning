@@ -74,7 +74,6 @@ for round in range(comms_round):
 ## Citation
 If you use this framework in your research, please cite our software paper:
 
-```bibtex
 @misc{ariaeimehr2026mhatfl,
   title={MHAT-FL: An Open-Source TensorFlow Framework for Federated Human Activity Recognition with Attention-Matrix Positional Encoding},
   author={Ariaeimehr, Mohammad},
@@ -83,4 +82,3 @@ If you use this framework in your research, please cite our software paper:
   doi={10.5281/zenodo.22541419},
   url={https://doi.org/10.5281/zenodo.22541419}
 }
-```
