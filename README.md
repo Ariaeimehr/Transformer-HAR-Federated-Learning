@@ -69,11 +69,12 @@ MHAT-FL is highly modular. Below is a basic example of how to initialize the fra
 ## Citation
 If you use this framework in your research, please cite our upcoming paper:
 
-  @misc{ariaeimehr2026mhatfl,
+```bibtex
+@misc{ariaeimehr2026mhatfl,
   title={MHAT-FL: An Open-Source TensorFlow Framework for Federated Human Activity Recognition with Attention-Matrix Positional Encoding},
   author={Ariaeimehr, Mohammad},
   year={2026},
   publisher={Zenodo},
   doi={10.5281/zenodo.22541419},
-  url={https://doi.org/10.5281/zenodo.22541419}
+  url={[https://doi.org/10.5281/zenodo.22541419](https://doi.org/10.5281/zenodo.22541419)}
 }
